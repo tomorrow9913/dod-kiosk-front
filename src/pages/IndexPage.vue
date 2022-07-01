@@ -36,14 +36,14 @@
         {
             title: 'Book',
             subtitle: '도서 대여',
-            caption: '동아리방 책 좀 빌릴게요',
+            caption: '책 좀 빌릴게요',
             color: 'bg-teal',
             icon: 'auto_stories'
         },
         {
             title: 'Product',
             subtitle: '장비 대여',
-            caption: '동아리에서 구비한 장비가 필요해요',
+            caption: '장비가 필요해요',
             color: 'bg-brown-5',
             icon: 'precision_manufacturing'
         },

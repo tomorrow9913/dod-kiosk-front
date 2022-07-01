@@ -6,7 +6,10 @@
                 <q-toolbar-title>
                     D.o.D Kiosk
                 </q-toolbar-title>
-                <div>kiosk v{{ $q.version }}</div>
+                <div>
+                    <span> kiosk v{{ $q.version }}</span> 
+                    <span id="time">{{time}}</span> 
+                </div>
             </q-toolbar>
         </q-header>
         <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
@@ -86,8 +89,22 @@
                 leftDrawerOpen,
                 toggleLeftDrawer() {
                     leftDrawerOpen.value = !leftDrawerOpen.value
-                }
+                },
+                
             }
-        }
+        },
+        data(){
+            return {
+                time: new Date().toLocaleTimeString()
+            }
+        },
+        async mounted() {
+            this.time = new Date().toLocaleTimeString()
+            
+            setInterval(async () => {
+                    this.time = new Date().toLocaleTimeString()
+                }, 1000);
+            
+        },
     })
 </script>
