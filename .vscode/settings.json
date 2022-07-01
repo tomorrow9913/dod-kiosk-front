@@ -1,0 +1,23 @@
+{
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": [
+    "source.fixAll.eslint"
+  ],
+  "eslint.format.enabled": true,
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+  "javascript.format.placeOpenBraceOnNewLineForControlBlocks": false,
+  "javascript.format.placeOpenBraceOnNewLineForFunctions": false,
+  "typescript.format.insertSpaceBeforeFunctionParenthesis": true,
+  "typescript.format.placeOpenBraceOnNewLineForControlBlocks": false,
+  "typescript.format.placeOpenBraceOnNewLineForFunctions": false,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "vue"
+  ]
+}
