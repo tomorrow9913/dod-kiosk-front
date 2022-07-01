@@ -2,6 +2,7 @@ import MainLayoutVue from 'layouts/MainLayout.vue';
 
 import IndexPageVue from 'pages/IndexPage.vue';
 import ErrorNotFoundVue from 'pages/ErrorNotFound.vue';
+import PersonMainVue from 'src/pages/PersonMain.vue';
 
 const routes = [
   {
@@ -9,6 +10,13 @@ const routes = [
     component: () => MainLayoutVue,
     children: [
       { path: '', component: () => IndexPageVue }
+    ]
+  },
+  {
+    path: '/person',
+    component: () => MainLayoutVue,
+    children: [
+      { path: '', component: () => PersonMainVue }
     ]
   },
 

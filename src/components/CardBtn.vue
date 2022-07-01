@@ -1,19 +1,19 @@
 <template>
 
     <q-card class="card card-btn">
-        <q-card-section class="text-white" :class="color">
-            
-            <q-item-section v-if="icon" avatar>
-                <q-icon :name="icon" />
-            </q-item-section>
+        <router-link :to="route">
+            <q-card-section class="text-white" :class="color">
+                <q-item-section v-if="icon" avatar>
+                    <q-icon :name="icon" />
+                </q-item-section>
 
-            <div class="text-h6"> {{title}}</div>
-            <div class="text-subtitle2">{{subtitle}}</div>
-        
-        </q-card-section>
-        <q-card-actions align="right">
-            {{caption}}
-        </q-card-actions>
+                <div class="text-h6"> {{title}}</div>
+                <div class="text-subtitle2">{{subtitle}}</div>
+            </q-card-section>
+            <q-card-actions align="right" style="color: black">
+                {{caption}}
+            </q-card-actions>
+        </router-link>
     </q-card>
     
 </template>
@@ -44,6 +44,10 @@
             icon: {
                 type: String,
                 default: ''
+            },
+            route: {
+                type: String,
+                default: '/'
             }
         }
     })

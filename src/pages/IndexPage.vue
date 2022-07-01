@@ -9,7 +9,7 @@
         v-bind:color="card.color"
         v-bind:icon="card.icon"
         v-bind:key="card.title"
-        v_on:click="" 
+        v-bind:route="card.route" 
         ></CardBtn>
     </q-page>
     
@@ -24,35 +24,40 @@
             subtitle: '팀플, 프로젝트 구인',
             caption: '팀플, 프로젝트 같이 할 사람 구해요',
             color: 'bg-primary',
-            icon: 'group_add'
+            icon: 'group_add',
+            route: '/person'
         },
         {
             title: 'Server',
             subtitle: '서버 대여',
             caption: '프로젝트 서버가 필요해요',
             color: 'bg-purple',
-            icon: 'dns'
+            icon: 'dns',
+            route: '/person'
         },
         {
             title: 'Book',
             subtitle: '도서 대여',
             caption: '책 좀 빌릴게요',
             color: 'bg-teal',
-            icon: 'auto_stories'
+            icon: 'auto_stories',
+            route: '/person'
         },
         {
             title: 'Product',
             subtitle: '장비 대여',
             caption: '장비가 필요해요',
             color: 'bg-brown-5',
-            icon: 'precision_manufacturing'
+            icon: 'precision_manufacturing',
+            route: '/person'
         },
         {
             title: 'Other',
             subtitle: '연장, 및 반납',
             caption: '잘 사용했어요!',
             color: 'bg-grey-8',
-            icon: 'architecture'
+            icon: 'architecture',
+            route: '/person'
         }
     ]
 
