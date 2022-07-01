@@ -1,6 +1,6 @@
 <template>
 
-    <q-card class="card">
+    <q-card class="card card-btn">
         <q-card-section class="text-white" :class="color">
             
             <q-item-section v-if="icon" avatar>
@@ -48,13 +48,3 @@
         }
     })
 </script>
-
-<style lang="sass" scoped>
-    .card
-        margin: 3%
-        width: 20%
-    
-    .text-h6
-        margin-top: 40%
-
-</style>
