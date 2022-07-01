@@ -1,4 +1,4 @@
-# kr.ac.deu.asw.dod.kiosk (dod-kiosk)
+# dod-kiosk
 
 dod kiosk
 
