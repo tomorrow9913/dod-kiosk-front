@@ -1,8 +1,7 @@
 <template>
 
     <q-card class="card card-btn">
-        <router-link :to="route">
-            <q-card-section class="text-white" :class="color">
+            <q-card-section class="text-white" :class="color" @click="$router.push(route)">
                 <q-item-section v-if="icon" avatar>
                     <q-icon :name="icon" />
                 </q-item-section>
@@ -13,7 +12,6 @@
             <q-card-actions align="right" style="color: black">
                 {{caption}}
             </q-card-actions>
-        </router-link>
     </q-card>
     
 </template>
