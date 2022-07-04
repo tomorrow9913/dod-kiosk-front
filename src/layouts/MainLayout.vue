@@ -1,5 +1,5 @@
 <template>
-    <q-layout view="lHh Lpr lFf">
+    <q-layout view="lHh Lpr lFf" v-on:click.capture="updateLastAction()">
         <q-header elevated>
             <q-toolbar>
                 <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
@@ -7,8 +7,8 @@
                     D.o.D Kiosk
                 </q-toolbar-title>
                 <div>
-                    <span> kiosk v{{ $q.version }}</span> 
-                    <span id="time">{{time}}</span> 
+                    <span> kiosk v{{ $q.version }}</span>
+                    <span id="time">{{time.toLocaleDateString()+" "+time.toLocaleTimeString()}}</span>
                 </div>
             </q-toolbar>
         </q-header>
@@ -32,7 +32,6 @@
         ref
     } from 'vue'
     import EssentialLink from 'components/EssentialLink.vue'
-    
     const linksList = [{
             title: 'Docs',
             caption: 'quasar.dev',
@@ -76,11 +75,16 @@
             link: 'https://awesome.quasar.dev'
         }
     ]
-
     export default defineComponent({
         name: 'MainLayout',
         components: {
             EssentialLink
+        },
+        methods: {
+            updateLastAction() {
+                delete this.lastAction;
+                this.lastAction = new Date();
+            },
         },
         setup() {
             const leftDrawerOpen = ref(false)
@@ -90,20 +94,33 @@
                 toggleLeftDrawer() {
                     leftDrawerOpen.value = !leftDrawerOpen.value
                 },
+                lastAction: new Date(),
+                timer: false
             }
         },
-        data(){
+        data() {
             return {
-                time: new Date().toLocaleTimeString()
+                time: new Date()
+            }
+        },
+        watch: {
+            $route(to, from) {
+                if (to.path === '/notice') {
+                    delete this.lastAction;
+                    delete this.time
+                    clearInterval(this.timer)
+                }
             }
         },
         async mounted() {
-            this.time = new Date().toLocaleTimeString()
-            
-            setInterval(async () => {
-                    this.time = new Date().toLocaleTimeString()
+            if (!this.timer) {
+                this.timer = setInterval(() => {
+                    this.time = new Date()
+                    if (this.time.getTime() - this.lastAction.getTime() > 1000 * 60 * 1) {
+                        this.$router.push('/notice')
+                    }
                 }, 1000);
-            
+            }
         },
     })
 </script>

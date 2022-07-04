@@ -2,7 +2,7 @@
     <div class="q-pa-md flex flex-center">
         <q-breadcrumbs>
             <q-breadcrumbs-el icon="home" to="/" />
-            <q-breadcrumbs-el label="Person" icon="group_add" to="/person" />
+            <q-breadcrumbs-el label="Person" icon="group_add" to="/board" />
         </q-breadcrumbs>
         <hr>
         <q-card style="margin-top: 1%">
@@ -36,7 +36,7 @@
                 </q-tab-panel>
             </q-tab-panels>
         </q-card>
-        <q-btn push color="white" text-color="primary" label="뒤로가기" style="margin-top: 2%" to="/" />
+        <q-btn push color="white" text-color="primary" label="뒤로가기" style="margin-top: 1%" to="/" />
         <q-dialog v-model="fixed">
             <q-card>
                 <q-card-section>
@@ -46,7 +46,7 @@
                 <q-card-section style="max-height: 50vh" class="scroll">
                     <div class="text-h6">이런 것을 하고 있어요(프로젝트 설명)</div>
                     <q-input outlined v-model="text" type="textarea" readonly disable />
-                    <div class="text-h6">이런 것을 이용하고 있어요(사용하는 기술스택*툴)</div>
+                    <div class="text-h6">이런 것을 이용하고 있어요(기술스택/툴)</div>
                     <q-input outlined v-model="text" type="textarea" readonly disable />
                     <div class="text-h6">이것을 할 줄 알아요(포지션)</div>
                     <q-input outlined v-model="text" type="textarea" readonly disable />

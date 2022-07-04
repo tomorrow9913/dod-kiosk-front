@@ -25,7 +25,7 @@
             caption: '팀플, 프로젝트 같이 할 사람 구해요',
             color: 'bg-primary',
             icon: 'group_add',
-            route: '/person'
+            route: '/board'
         },
         {
             title: 'Server',
@@ -33,7 +33,7 @@
             caption: '프로젝트 서버가 필요해요',
             color: 'bg-purple',
             icon: 'dns',
-            route: '/person'
+            route: '/board'
         },
         {
             title: 'Book',
@@ -41,7 +41,7 @@
             caption: '책 좀 빌릴게요',
             color: 'bg-teal',
             icon: 'auto_stories',
-            route: '/person'
+            route: '/board'
         },
         {
             title: 'Product',
@@ -49,7 +49,7 @@
             caption: '장비가 필요해요',
             color: 'bg-brown-5',
             icon: 'precision_manufacturing',
-            route: '/person'
+            route: '/board'
         },
         {
             title: 'Other',
@@ -57,7 +57,7 @@
             caption: '잘 사용했어요!',
             color: 'bg-grey-8',
             icon: 'architecture',
-            route: '/person'
+            route: '/notice'
         }
     ]
 
