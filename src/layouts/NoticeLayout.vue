@@ -1,7 +1,14 @@
 <template>
     <q-layout>
         <q-page-container>
-            <router-view></router-view>
+            <transition
+                enter-active-class="animated fadeIn"
+                leave-active-class="animated fadeOut"
+                appear
+                :duration="300"
+                >
+                <router-view />
+            </transition>
         </q-page-container>
     </q-layout>
 </template>

@@ -22,7 +22,14 @@
         </q-drawer>
         <q-page-container>
             <q-linear-progress :value="progress" color="warning" class="q-mt-sm" />
-            <router-view />
+            <transition
+                enter-active-class="animated fadeIn"
+                leave-active-class="animated fadeOut"
+                appear
+                :duration="300"
+                >
+                <router-view />
+            </transition>
         </q-page-container>
     </q-layout>
 </template>
