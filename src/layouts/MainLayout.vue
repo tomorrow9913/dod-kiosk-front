@@ -1,5 +1,5 @@
 <template>
-    <q-layout view="lHh Lpr lFf" v-on:click.capture="updateLastAction()">
+    <q-layout view="lHh Lpr lFf" v-on:click.capture="updateLastAction">
         <q-header elevated>
             <q-toolbar>
                 <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
@@ -21,6 +21,7 @@
             </q-list>
         </q-drawer>
         <q-page-container>
+            <q-linear-progress :value="progress" color="warning" class="q-mt-sm" />
             <router-view />
         </q-page-container>
     </q-layout>
@@ -87,15 +88,21 @@
             },
         },
         setup() {
+            const routeTime = 1000 * 30
+            const unitProgress = 1/(routeTime/1000)
+            const progress = ref(unitProgress*1.5)
             const leftDrawerOpen = ref(false)
             return {
+                progress,
+                unitProgress,
+                routeTime,
                 essentialLinks: linksList,
                 leftDrawerOpen,
                 toggleLeftDrawer() {
                     leftDrawerOpen.value = !leftDrawerOpen.value
                 },
                 lastAction: new Date(),
-                timer: false
+                timer: false,
             }
         },
         data() {
@@ -116,7 +123,8 @@
             if (!this.timer) {
                 this.timer = setInterval(() => {
                     this.time = new Date()
-                    if (this.time.getTime() - this.lastAction.getTime() > 1000 * 60 * 1) {
+                    this.progress = this.unitProgress+(this.time.getTime() - this.lastAction.getTime())/this.routeTime
+                    if (this.time.getTime() - this.lastAction.getTime() > this.routeTime) {
                         this.$router.push('/notice')
                     }
                 }, 1000);
